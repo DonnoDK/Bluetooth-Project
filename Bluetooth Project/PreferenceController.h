@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface PreferenceController : NSWindowController
+@interface PreferenceController : NSWindowController <NSWindowDelegate> 
 
 @property NSUInteger countdownValue;
 @property BOOL lockScreen;
@@ -16,5 +16,6 @@
 @property BOOL dimKeyboard;
 @property NSUInteger thresholdValue;
 @property NSUInteger signalStrength;
+
 
 @end
