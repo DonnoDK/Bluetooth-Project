@@ -26,5 +26,10 @@
     trayStatusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [trayStatusItem setTitle:@"BTLock"];
     [trayStatusItem setMenu:trayMenu];
+    
+    // load preferences
+    
+    // is this the first time the app is launched?
+        // show setup screen and prompt the user to discover/pair a device for use in the app
 }
 @end
