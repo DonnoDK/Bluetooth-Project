@@ -67,8 +67,6 @@
 		682EF9E614C9926A0059B8A4 = {
 			isa = PBXGroup;
 			children = (
-				688B12FF14C9B240009A34CB /* IOBluetooth.framework */,
-				688B130014C9B240009A34CB /* IOBluetoothUI.framework */,
 				682EF9FB14C9926A0059B8A4 /* Bluetooth Project */,
 				682EF9F414C9926A0059B8A4 /* Frameworks */,
 				682EF9F214C9926A0059B8A4 /* Products */,
@@ -86,6 +84,8 @@
 		682EF9F414C9926A0059B8A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				688B12FF14C9B240009A34CB /* IOBluetooth.framework */,
+				688B130014C9B240009A34CB /* IOBluetoothUI.framework */,
 				682EF9F514C9926A0059B8A4 /* Cocoa.framework */,
 				682EF9F714C9926A0059B8A4 /* Other Frameworks */,
 			);
