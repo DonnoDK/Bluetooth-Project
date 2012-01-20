@@ -17,6 +17,11 @@
 @synthesize thresholdValue;
 @synthesize signalStrength;
 
+- (id)init {
+    self = [super initWithWindowNibName:@"Preference"];
+    return self;
+}
+
 - (id)initWithWindow:(NSWindow *)window
 {
     self = [super initWithWindow:window];
