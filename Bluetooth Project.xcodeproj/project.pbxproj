@@ -90,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				D872BA4814C997BD00F35897 /* Preference Panel */,
+				D8104C1314C9A07C00FB1711 /* MainMenu.xib */,
 				682EFA0714C9926B0059B8A4 /* BBAAppDelegate.h */,
 				682EFA0814C9926B0059B8A4 /* BBAAppDelegate.m */,
 				682EFA0D14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld */,
@@ -116,7 +117,6 @@
 				D872BA4A14C997FD00F35897 /* Preference.xib */,
 				D872BA4C14C9982A00F35897 /* PreferenceController.h */,
 				D872BA4D14C9982A00F35897 /* PreferenceController.m */,
-				D8104C1314C9A07C00FB1711 /* MainMenu.xib */,
 			);
 			name = "Preference Panel";
 			sourceTree = "<group>";
