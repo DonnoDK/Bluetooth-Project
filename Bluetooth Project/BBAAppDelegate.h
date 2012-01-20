@@ -3,7 +3,7 @@
 //  Bluetooth Project
 //
 //  Created by Brian Pedersen on 1/20/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Bluebird. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
