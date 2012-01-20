@@ -17,5 +17,10 @@
 @property NSUInteger thresholdValue;
 @property NSUInteger signalStrength;
 
+- (IBAction)resetToDefaults:(id)sender;
+
+- (void)alertEnded:(NSAlert *)alert
+              code:(NSInteger)choise
+           context:(void *)v;
 
 @end
