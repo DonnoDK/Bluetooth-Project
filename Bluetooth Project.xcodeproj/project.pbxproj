@@ -12,8 +12,8 @@
 		682EFA0214C9926A0059B8A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 682EFA0114C9926A0059B8A4 /* main.m */; };
 		682EFA0614C9926B0059B8A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 682EFA0414C9926B0059B8A4 /* Credits.rtf */; };
 		682EFA0914C9926B0059B8A4 /* BBAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 682EFA0814C9926B0059B8A4 /* BBAAppDelegate.m */; };
-		682EFA0C14C9926B0059B8A4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 682EFA0A14C9926B0059B8A4 /* MainMenu.xib */; };
 		682EFA0F14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 682EFA0D14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld */; };
+		D8104C1414C9A07C00FB1711 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8104C1314C9A07C00FB1711 /* MainMenu.xib */; };
 		D872BA4B14C997FD00F35897 /* Preference.xib in Resources */ = {isa = PBXBuildFile; fileRef = D872BA4A14C997FD00F35897 /* Preference.xib */; };
 		D872BA4E14C9982A00F35897 /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = D872BA4D14C9982A00F35897 /* PreferenceController.m */; };
 /* End PBXBuildFile section */
@@ -31,8 +31,8 @@
 		682EFA0514C9926B0059B8A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		682EFA0714C9926B0059B8A4 /* BBAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBAAppDelegate.h; sourceTree = "<group>"; };
 		682EFA0814C9926B0059B8A4 /* BBAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBAAppDelegate.m; sourceTree = "<group>"; };
-		682EFA0B14C9926B0059B8A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		682EFA0E14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bluetooth_Project.xcdatamodel; sourceTree = "<group>"; };
+		D8104C1314C9A07C00FB1711 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		D872BA4A14C997FD00F35897 /* Preference.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preference.xib; sourceTree = "<group>"; };
 		D872BA4C14C9982A00F35897 /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
 		D872BA4D14C9982A00F35897 /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
@@ -92,11 +92,8 @@
 				D872BA4814C997BD00F35897 /* Preference Panel */,
 				682EFA0714C9926B0059B8A4 /* BBAAppDelegate.h */,
 				682EFA0814C9926B0059B8A4 /* BBAAppDelegate.m */,
-				682EFA0A14C9926B0059B8A4 /* MainMenu.xib */,
 				682EFA0D14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld */,
 				682EF9FC14C9926A0059B8A4 /* Supporting Files */,
-				6873DB4F14C9999F00258E1B /* AppController.h */,
-				6873DB5014C9999F00258E1B /* AppController.m */,
 			);
 			path = "Bluetooth Project";
 			sourceTree = "<group>";
@@ -119,6 +116,7 @@
 				D872BA4A14C997FD00F35897 /* Preference.xib */,
 				D872BA4C14C9982A00F35897 /* PreferenceController.h */,
 				D872BA4D14C9982A00F35897 /* PreferenceController.m */,
+				D8104C1314C9A07C00FB1711 /* MainMenu.xib */,
 			);
 			name = "Preference Panel";
 			sourceTree = "<group>";
@@ -175,8 +173,8 @@
 			files = (
 				682EFA0014C9926A0059B8A4 /* InfoPlist.strings in Resources */,
 				682EFA0614C9926B0059B8A4 /* Credits.rtf in Resources */,
-				682EFA0C14C9926B0059B8A4 /* MainMenu.xib in Resources */,
 				D872BA4B14C997FD00F35897 /* Preference.xib in Resources */,
+				D8104C1414C9A07C00FB1711 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,14 +209,6 @@
 				682EFA0514C9926B0059B8A4 /* en */,
 			);
 			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		682EFA0A14C9926B0059B8A4 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				682EFA0B14C9926B0059B8A4 /* en */,
-			);
-			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
