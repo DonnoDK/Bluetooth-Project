@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AppController : NSObject
+@interface AppController : NSObject{
+    IBOutlet NSMenu *trayIconMenu;
+    NSStatusItem *trayIcon;
+}
 
 @end
