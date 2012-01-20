@@ -24,12 +24,19 @@
 
 -(void)awakeFromNib{
     trayStatusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    [trayStatusItem setTitle:@"BTLock"];
+    [trayStatusItem setTitle:@"BTLock"]; //set icon instead at later stage
     [trayStatusItem setMenu:trayMenu];
+    
     
     // load preferences
     
     // is this the first time the app is launched?
         // show setup screen and prompt the user to discover/pair a device for use in the app
+    
+    // enter loop polling signal strength
+        // is the setupscreen and prefwindow NOT visible?
+        // what is the signal strength?
+        // is it below the threshold?
+            // alert the user and lock if timer runs out
 }
 @end

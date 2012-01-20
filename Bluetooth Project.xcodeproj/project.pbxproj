@@ -13,6 +13,8 @@
 		682EFA0614C9926B0059B8A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 682EFA0414C9926B0059B8A4 /* Credits.rtf */; };
 		682EFA0914C9926B0059B8A4 /* BBAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 682EFA0814C9926B0059B8A4 /* BBAAppDelegate.m */; };
 		682EFA0F14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 682EFA0D14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld */; };
+		688B12F814C9AB2C009A34CB /* Setup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 688B12F714C9AB2C009A34CB /* Setup.xib */; };
+		688B12FE14C9ABC1009A34CB /* SetupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B12FD14C9ABC1009A34CB /* SetupController.m */; };
 		D8104C1414C9A07C00FB1711 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8104C1314C9A07C00FB1711 /* MainMenu.xib */; };
 		D872BA4B14C997FD00F35897 /* Preference.xib in Resources */ = {isa = PBXBuildFile; fileRef = D872BA4A14C997FD00F35897 /* Preference.xib */; };
 		D872BA4E14C9982A00F35897 /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = D872BA4D14C9982A00F35897 /* PreferenceController.m */; };
@@ -33,6 +35,9 @@
 		682EFA0714C9926B0059B8A4 /* BBAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBAAppDelegate.h; sourceTree = "<group>"; };
 		682EFA0814C9926B0059B8A4 /* BBAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBAAppDelegate.m; sourceTree = "<group>"; };
 		682EFA0E14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bluetooth_Project.xcdatamodel; sourceTree = "<group>"; };
+		688B12F714C9AB2C009A34CB /* Setup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Setup.xib; sourceTree = "<group>"; };
+		688B12FC14C9ABC1009A34CB /* SetupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupController.h; sourceTree = "<group>"; };
+		688B12FD14C9ABC1009A34CB /* SetupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupController.m; sourceTree = "<group>"; };
 		D8104C1314C9A07C00FB1711 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		D872BA4A14C997FD00F35897 /* Preference.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preference.xib; sourceTree = "<group>"; };
 		D872BA4C14C9982A00F35897 /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
@@ -92,6 +97,7 @@
 		682EF9FB14C9926A0059B8A4 /* Bluetooth Project */ = {
 			isa = PBXGroup;
 			children = (
+				688B12F514C9AB09009A34CB /* Setup Panel */,
 				D872BA4814C997BD00F35897 /* Preference Panel */,
 				D8104C1314C9A07C00FB1711 /* MainMenu.xib */,
 				682EFA0714C9926B0059B8A4 /* BBAAppDelegate.h */,
@@ -114,6 +120,16 @@
 				682EFA0414C9926B0059B8A4 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		688B12F514C9AB09009A34CB /* Setup Panel */ = {
+			isa = PBXGroup;
+			children = (
+				688B12F714C9AB2C009A34CB /* Setup.xib */,
+				688B12FC14C9ABC1009A34CB /* SetupController.h */,
+				688B12FD14C9ABC1009A34CB /* SetupController.m */,
+			);
+			name = "Setup Panel";
 			sourceTree = "<group>";
 		};
 		D872BA4814C997BD00F35897 /* Preference Panel */ = {
@@ -180,6 +196,7 @@
 				682EFA0614C9926B0059B8A4 /* Credits.rtf in Resources */,
 				D872BA4B14C997FD00F35897 /* Preference.xib in Resources */,
 				D8104C1414C9A07C00FB1711 /* MainMenu.xib in Resources */,
+				688B12F814C9AB2C009A34CB /* Setup.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +212,7 @@
 				682EFA0F14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld in Sources */,
 				D872BA4E14C9982A00F35897 /* PreferenceController.m in Sources */,
 				D8E6579314C9A35300B300D2 /* AppController.m in Sources */,
+				688B12FE14C9ABC1009A34CB /* SetupController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
