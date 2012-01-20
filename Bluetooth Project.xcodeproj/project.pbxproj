@@ -22,12 +22,12 @@
 		682EF9F814C9926A0059B8A4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		682EF9F914C9926A0059B8A4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		682EF9FA14C9926A0059B8A4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		682EF9FD14C9926A0059B8A4 /* Bluetooth Project-Info.plist */ = {isa = PBXFileReference; path = "Bluetooth Project-Info.plist"; sourceTree = "<group>"; };
+		682EF9FD14C9926A0059B8A4 /* Bluetooth Project-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Bluetooth Project-Info.plist"; sourceTree = "<group>"; };
 		682EF9FF14C9926A0059B8A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		682EFA0114C9926A0059B8A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		682EFA0314C9926B0059B8A4 /* Bluetooth Project-Prefix.pch */ = {isa = PBXFileReference; path = "Bluetooth Project-Prefix.pch"; sourceTree = "<group>"; };
+		682EFA0314C9926B0059B8A4 /* Bluetooth Project-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bluetooth Project-Prefix.pch"; sourceTree = "<group>"; };
 		682EFA0514C9926B0059B8A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		682EFA0714C9926B0059B8A4 /* BBAAppDelegate.h */ = {isa = PBXFileReference; path = BBAAppDelegate.h; sourceTree = "<group>"; };
+		682EFA0714C9926B0059B8A4 /* BBAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBAAppDelegate.h; sourceTree = "<group>"; };
 		682EFA0814C9926B0059B8A4 /* BBAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBAAppDelegate.m; sourceTree = "<group>"; };
 		682EFA0B14C9926B0059B8A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		682EFA0E14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bluetooth_Project.xcdatamodel; sourceTree = "<group>"; };
