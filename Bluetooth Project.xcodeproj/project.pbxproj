@@ -16,6 +16,7 @@
 		D8104C1414C9A07C00FB1711 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8104C1314C9A07C00FB1711 /* MainMenu.xib */; };
 		D872BA4B14C997FD00F35897 /* Preference.xib in Resources */ = {isa = PBXBuildFile; fileRef = D872BA4A14C997FD00F35897 /* Preference.xib */; };
 		D872BA4E14C9982A00F35897 /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = D872BA4D14C9982A00F35897 /* PreferenceController.m */; };
+		D8E6579314C9A35300B300D2 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6579214C9A35300B300D2 /* AppController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		D872BA4A14C997FD00F35897 /* Preference.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preference.xib; sourceTree = "<group>"; };
 		D872BA4C14C9982A00F35897 /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
 		D872BA4D14C9982A00F35897 /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
+		D8E6579114C9A35300B300D2 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		D8E6579214C9A35300B300D2 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				682EFA0814C9926B0059B8A4 /* BBAAppDelegate.m */,
 				682EFA0D14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld */,
 				682EF9FC14C9926A0059B8A4 /* Supporting Files */,
+				D8E6579114C9A35300B300D2 /* AppController.h */,
+				D8E6579214C9A35300B300D2 /* AppController.m */,
 			);
 			path = "Bluetooth Project";
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 				682EFA0914C9926B0059B8A4 /* BBAAppDelegate.m in Sources */,
 				682EFA0F14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld in Sources */,
 				D872BA4E14C9982A00F35897 /* PreferenceController.m in Sources */,
+				D8E6579314C9A35300B300D2 /* AppController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
