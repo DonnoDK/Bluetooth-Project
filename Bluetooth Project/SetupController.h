@@ -7,7 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <IOBluetoothUI/IOBluetoothUI.h>
 
-@interface SetupController : NSWindowController
+@interface SetupController : IOBluetoothDeviceSelectorController{
+}
 
 @end

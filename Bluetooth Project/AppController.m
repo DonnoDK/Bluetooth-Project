@@ -13,7 +13,7 @@
 -(id)init{
     self = [super init];
     if (self) {
-        btInquiry = [[IOBluetoothDeviceInquiry alloc] init];
+        btInquiry = [[IOBluetoothDeviceInquiry alloc] initWithDelegate:self];
         preferenceController = [[PreferenceController alloc] init];
     }
     return self;
@@ -37,7 +37,7 @@
     NSLog(@"Starting device discovery");
     #endif
     [btInquiry start];
-    [btInquiry setDelegate:self];
+    
     
     firstTimeLaunched = YES; // Change this to not display the setup screen at startup
     // is this the first time the app is launched?
@@ -52,8 +52,8 @@
     
     // enter loop polling signal strength
         // is the setupscreen and prefwindow NOT visible?
-        // what is the signal strength?
-        // is it below the threshold?
-            // alert the user and lock if timer runs out
+            // what is the signal strength?
+            // is it below the threshold?
+                // alert the user and lock if timer runs out
 }
 @end
