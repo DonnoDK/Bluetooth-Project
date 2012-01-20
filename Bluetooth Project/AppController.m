@@ -14,15 +14,14 @@
     self = [super init];
     if (self) {
         btInquiry = [[IOBluetoothDeviceInquiry alloc] init];
+        preferenceController = [[PreferenceController alloc] init];
     }
     return self;
 }
 
 
 -(IBAction)showPref:(id)sender{
-    if (!preferenceController) {
-        preferenceController = [[PreferenceController alloc] init];
-    }
+    
     [preferenceController showWindow:self];
 }
 

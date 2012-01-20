@@ -19,7 +19,6 @@
     SetupController *setupController; // for the setup window controller
     BOOL firstTimeLaunched; //This is purely for testing
     IOBluetoothDeviceInquiry *btInquiry; //for device discovery
-    NSNotification *notification;
 }
 -(IBAction)showPref:(id)sender;
 @end
