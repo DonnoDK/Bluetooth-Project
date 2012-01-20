@@ -14,6 +14,7 @@
 		682EFA0914C9926B0059B8A4 /* BBAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 682EFA0814C9926B0059B8A4 /* BBAAppDelegate.m */; };
 		682EFA0C14C9926B0059B8A4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 682EFA0A14C9926B0059B8A4 /* MainMenu.xib */; };
 		682EFA0F14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 682EFA0D14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld */; };
+		6873DB5114C9999F00258E1B /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6873DB5014C9999F00258E1B /* AppController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		682EFA0814C9926B0059B8A4 /* BBAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBAAppDelegate.m; sourceTree = "<group>"; };
 		682EFA0B14C9926B0059B8A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		682EFA0E14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bluetooth_Project.xcdatamodel; sourceTree = "<group>"; };
+		6873DB4F14C9999F00258E1B /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		6873DB5014C9999F00258E1B /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				682EFA0A14C9926B0059B8A4 /* MainMenu.xib */,
 				682EFA0D14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld */,
 				682EF9FC14C9926A0059B8A4 /* Supporting Files */,
+				6873DB4F14C9999F00258E1B /* AppController.h */,
+				6873DB5014C9999F00258E1B /* AppController.m */,
 			);
 			path = "Bluetooth Project";
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 				682EFA0214C9926A0059B8A4 /* main.m in Sources */,
 				682EFA0914C9926B0059B8A4 /* BBAAppDelegate.m in Sources */,
 				682EFA0F14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld in Sources */,
+				6873DB5114C9999F00258E1B /* AppController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +298,7 @@
 				682EFA1414C9926B0059B8A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
