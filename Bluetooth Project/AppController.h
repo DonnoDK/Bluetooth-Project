@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 @class PreferenceController;
+@class SetupController;
 @interface AppController : NSObject{
     NSStatusItem *trayStatusItem;
     NSMenuItem *pref;
     IBOutlet NSMenu *trayMenu;
-    PreferenceController *preferenceController;
+    PreferenceController *preferenceController; // for the preference window controller
+    SetupController *setupController; // for the setup window controller
+    BOOL firstTimeLaunched; //This is purely for testing
 }
 -(IBAction)showPref:(id)sender;
 @end

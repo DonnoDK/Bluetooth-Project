@@ -8,6 +8,7 @@
 
 #import "AppController.h"
 #import "PreferenceController.h"
+#import "SetupController.h"
 @implementation AppController
 -(id)init{
     self = [super init];
@@ -29,9 +30,20 @@
     
     
     // load preferences
+    #ifdef DEBUG
+    NSLog(@"Loading preferences");
+    #endif
     
+    firstTimeLaunched = YES; // Change this to not display the setup screen at startup
     // is this the first time the app is launched?
+    if (firstTimeLaunched) {
         // show setup screen and prompt the user to discover/pair a device for use in the app
+        if (!setupController) {
+            setupController = [[SetupController alloc] init];
+        }
+        [setupController showWindow:self];
+    }
+        
     
     // enter loop polling signal strength
         // is the setupscreen and prefwindow NOT visible?
