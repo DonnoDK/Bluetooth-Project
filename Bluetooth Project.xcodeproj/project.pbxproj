@@ -15,6 +15,8 @@
 		682EFA0F14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 682EFA0D14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld */; };
 		688B12F814C9AB2C009A34CB /* Setup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 688B12F714C9AB2C009A34CB /* Setup.xib */; };
 		688B12FE14C9ABC1009A34CB /* SetupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B12FD14C9ABC1009A34CB /* SetupController.m */; };
+		688B130114C9B240009A34CB /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688B12FF14C9B240009A34CB /* IOBluetooth.framework */; };
+		688B130214C9B240009A34CB /* IOBluetoothUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688B130014C9B240009A34CB /* IOBluetoothUI.framework */; };
 		D8104C1414C9A07C00FB1711 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8104C1314C9A07C00FB1711 /* MainMenu.xib */; };
 		D872BA4B14C997FD00F35897 /* Preference.xib in Resources */ = {isa = PBXBuildFile; fileRef = D872BA4A14C997FD00F35897 /* Preference.xib */; };
 		D872BA4E14C9982A00F35897 /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = D872BA4D14C9982A00F35897 /* PreferenceController.m */; };
@@ -38,6 +40,8 @@
 		688B12F714C9AB2C009A34CB /* Setup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Setup.xib; sourceTree = "<group>"; };
 		688B12FC14C9ABC1009A34CB /* SetupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupController.h; sourceTree = "<group>"; };
 		688B12FD14C9ABC1009A34CB /* SetupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupController.m; sourceTree = "<group>"; };
+		688B12FF14C9B240009A34CB /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = System/Library/Frameworks/IOBluetooth.framework; sourceTree = SDKROOT; };
+		688B130014C9B240009A34CB /* IOBluetoothUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetoothUI.framework; path = System/Library/Frameworks/IOBluetoothUI.framework; sourceTree = SDKROOT; };
 		D8104C1314C9A07C00FB1711 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		D872BA4A14C997FD00F35897 /* Preference.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preference.xib; sourceTree = "<group>"; };
 		D872BA4C14C9982A00F35897 /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
@@ -51,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				688B130114C9B240009A34CB /* IOBluetooth.framework in Frameworks */,
+				688B130214C9B240009A34CB /* IOBluetoothUI.framework in Frameworks */,
 				682EF9F614C9926A0059B8A4 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +67,8 @@
 		682EF9E614C9926A0059B8A4 = {
 			isa = PBXGroup;
 			children = (
+				688B12FF14C9B240009A34CB /* IOBluetooth.framework */,
+				688B130014C9B240009A34CB /* IOBluetoothUI.framework */,
 				682EF9FB14C9926A0059B8A4 /* Bluetooth Project */,
 				682EF9F414C9926A0059B8A4 /* Frameworks */,
 				682EF9F214C9926A0059B8A4 /* Products */,

@@ -12,6 +12,9 @@
 @implementation AppController
 -(id)init{
     self = [super init];
+    if (self) {
+        btInquiry = [[IOBluetoothDeviceInquiry alloc] init];
+    }
     return self;
 }
 
@@ -32,7 +35,10 @@
     // load preferences
     #ifdef DEBUG
     NSLog(@"Loading preferences");
+    NSLog(@"Starting device discovery");
     #endif
+    [btInquiry start];
+    [btInquiry setDelegate:self];
     
     firstTimeLaunched = YES; // Change this to not display the setup screen at startup
     // is this the first time the app is launched?
