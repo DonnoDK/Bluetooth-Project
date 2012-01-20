@@ -95,6 +95,8 @@
 				682EFA0A14C9926B0059B8A4 /* MainMenu.xib */,
 				682EFA0D14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld */,
 				682EF9FC14C9926A0059B8A4 /* Supporting Files */,
+				6873DB4F14C9999F00258E1B /* AppController.h */,
+				6873DB5014C9999F00258E1B /* AppController.m */,
 			);
 			path = "Bluetooth Project";
 			sourceTree = "<group>";
