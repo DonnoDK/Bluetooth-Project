@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface AppController : NSObject
-
+@class PreferenceController;
+@interface AppController : NSObject{
+    NSStatusItem *trayStatusItem;
+    NSMenuItem *pref;
+    IBOutlet NSMenu *trayMenu;
+    PreferenceController *preferenceController;
+}
+-(IBAction)showPref:(id)sender;
 @end

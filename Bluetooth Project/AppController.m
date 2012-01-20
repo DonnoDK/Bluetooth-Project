@@ -7,7 +7,24 @@
 //
 
 #import "AppController.h"
-
+#import "PreferenceController.h"
 @implementation AppController
+-(id)init{
+    self = [super init];
+    return self;
+}
 
+
+-(IBAction)showPref:(id)sender{
+    if (!preferenceController) {
+        preferenceController = [[PreferenceController alloc] init];
+    }
+    [preferenceController showWindow:self];
+}
+
+-(void)awakeFromNib{
+    trayStatusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    [trayStatusItem setTitle:@"BTLock"];
+    [trayStatusItem setMenu:trayMenu];
+}
 @end
