@@ -30,7 +30,7 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 @synthesize dimKeyboard;    // Dim keyboard?
 @synthesize thresholdValue; // Minimum signal strength before taking actions
 @synthesize signalStrength; // Current signal strength
-
+@synthesize selectedDeviceName; // name of the currently selected device
 
 #pragma mark Defaults
 + (void)initialize {
@@ -120,9 +120,10 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
     [self setCountdownValue:[PreferenceController preferenceCountDownValue]];
     [self setLockScreen:[PreferenceController preferenceLockScreen]];
     [self setDimDisplay:[PreferenceController preferenceDimDisplay]];
-    NSLog(@"Dim display is: %d", [PreferenceController preferenceDimDisplay]);
     [self setDimKeyboard:[PreferenceController preferenceDimKeyboard]];
     [self setThresholdValue:[PreferenceController preferenceThresholdValue]];
+    
+    
 }
 
 #pragma mark IBActions
@@ -155,6 +156,26 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
         [self setCountdownValue:30];
         [self setThresholdValue:50];
     }
+}
+
+-(IBAction)selectDevice:(id)sender{
+    bluetoothSelectorController = [[IOBluetoothDeviceSelectorController alloc] init];
+    if (!bluetoothSelectorController) {
+        NSLog(@"dealloced");
+    }
+    [bluetoothSelectorController beginSheetModalForWindow:[self window] modalDelegate:self didEndSelector:@selector(changeSelectedDevice) contextInfo:(void *)contextInfo];
+    free(contextInfo);
+}
+     
+-(void)changeSelectedDevice{
+    NSArray *device = [bluetoothSelectorController getResults];
+    [self setSelectedDeviceName:[[device objectAtIndex:0] name]];
+    
+}
+
+-(IBAction)addNewDevice:(id)sender{
+    [[[IOBluetoothPairingController alloc] init] runModal];
+    
 }
 
 #pragma mark Accessors
@@ -193,5 +214,11 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
     [self willChangeValueForKey:@"thresholdValue"];
     thresholdValue = value;
     [self didChangeValueForKey:@"thresholdValue"];
+}
+//overload
+- (void)setSelectedDeviceName:(NSString *)value{
+    [self willChangeValueForKey:@"selectedDeviceName"];
+    selectedDeviceName = value;
+    [self didChangeValueForKey:@"selectedDeviceName"];
 }
 @end
