@@ -36,7 +36,8 @@
     // load preferences
     #ifdef DEBUG
     #endif
-    firstTimeLaunched = NO; // Change this to not display the setup screen at startup
+
+    firstTimeLaunched = YES; // Change this to not display the setup screen at startup
     // is this the first time the app is launched?
     if (firstTimeLaunched) {
         // show setup screen and prompt the user to discover/pair a device for use in the app
