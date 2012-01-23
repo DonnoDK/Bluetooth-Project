@@ -10,30 +10,21 @@
 
 @implementation SetupController
 
-//-(id)init{
-//    self = [super initWithWindowNibName:@"Setup"];
-    //btPairing = [IOBluetoothPairingController pairingController];
-//    return self;
-//}
-
-
-- (id)initWithWindow:(NSWindow *)window
-{
-    self = [super initWithWindow:window];
-    if (self) {
-        
-    }
-    
+-(id)init{
+    self = [super initWithWindowNibName:@"Setup"];
     return self;
 }
+
+
 
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     
 }
 
+-(void)awakeFromNib{
+}
 
 @end
