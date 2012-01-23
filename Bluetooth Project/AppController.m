@@ -13,10 +13,8 @@
 -(id)init{
     self = [super init];
     if (self) {
-        //btInquiry = [[IOBluetoothDeviceInquiry alloc] initWithDelegate:self];
+        btInquiry = [[IOBluetoothDeviceInquiry alloc] initWithDelegate:self];
         preferenceController = [[PreferenceController alloc] init];
-        // alloc/initing the preferenceController loads the preferences if there are any
-        // If not it set values to default
     }
     return self;
 }
@@ -31,11 +29,16 @@
     trayStatusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [trayStatusItem setTitle:@"BTLock"]; //set icon instead at later stage
     [trayStatusItem setMenu:trayMenu];
-    NSLog(@"List %@", [IOBluetoothDevice pairedDevices]);
+    
     
     // load preferences
-    #ifdef DEBUG
-    #endif
+#ifdef DEBUG
+    NSLog(@"Loading preferences");
+    NSLog(@"Starting device discovery");
+#endif
+    [btInquiry start];
+    
+    
     firstTimeLaunched = NO; // Change this to not display the setup screen at startup
     // is this the first time the app is launched?
     if (firstTimeLaunched) {
@@ -45,14 +48,12 @@
         }
         [setupController showWindow:self];
     }
-        
+    
     
     // enter loop polling signal strength
-        // is the setupscreen and prefwindow NOT visible?
-            // what is the signal strength?
-            // is it below the threshold?
-                // alert the user and lock if timer runs out
+    // is the setupscreen and prefwindow NOT visible?
+    // what is the signal strength?
+    // is it below the threshold?
+    // alert the user and lock if timer runs out
 }
-
-
 @end
