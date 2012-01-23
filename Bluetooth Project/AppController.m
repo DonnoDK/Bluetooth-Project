@@ -32,11 +32,11 @@
     // load preferences
 #ifdef DEBUG
 #endif
-        
     // enter loop polling signal strength
     // is the setupscreen and prefwindow NOT visible?
     // what is the signal strength?
     // is it below the threshold?
     // alert the user and lock if timer runs out
+    
 }
 @end

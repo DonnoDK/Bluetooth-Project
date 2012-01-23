@@ -23,7 +23,7 @@ NSString * const BBADimKeyboardKey       = @"BBADimKeyboard";
 NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 
 @implementation PreferenceController
-
+@synthesize isRunning;
 @synthesize countdownValue; // Seconds before actions are taken, after connection is lost
 @synthesize lockScreen;     // Lock screen?
 @synthesize dimDisplay;     // Dim display?
@@ -31,6 +31,7 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 @synthesize thresholdValue; // Minimum signal strength before taking actions
 @synthesize signalStrength; // Current signal strength
 @synthesize selectedDeviceName; // name of the currently selected device
+@synthesize selectedDevice;
 
 #pragma mark Defaults
 + (void)initialize {
@@ -97,6 +98,9 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 
 - (id)init {
     self = [super initWithWindowNibName:@"Preference"];
+    if (self) {
+        [self setSignalStrength:-20];
+    }
     
 #ifdef DEBUG
     NSLog(@"PreferenceController: init");
@@ -122,8 +126,18 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
     [self setDimDisplay:[PreferenceController preferenceDimDisplay]];
     [self setDimKeyboard:[PreferenceController preferenceDimKeyboard]];
     [self setThresholdValue:[PreferenceController preferenceThresholdValue]];
-    
-    
+    [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(updateIndicator) userInfo:nil repeats:YES];
+}
+-(void)updateIndicator{
+    if ([self isRunning]){
+        if (selectedDevice && ![selectedDevice isConnected]) {
+            [selectedDevice openConnection];
+            [self setSignalStrength:-20];
+        }
+        if (selectedDevice && [selectedDevice isConnected]){
+            [self setSignalStrength:[selectedDevice RSSI]];
+        }
+    }
 }
 
 #pragma mark IBActions
@@ -169,8 +183,8 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
      
 -(void)changeSelectedDevice{
     NSArray *device = [bluetoothSelectorController getResults];
+    [self setSelectedDevice:[device objectAtIndex:0]];
     [self setSelectedDeviceName:[[device objectAtIndex:0] name]];
-    
 }
 
 -(IBAction)addNewDevice:(id)sender{
@@ -221,4 +235,31 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
     selectedDeviceName = value;
     [self didChangeValueForKey:@"selectedDeviceName"];
 }
+
+- (void)setIsRunning:(BOOL)value{
+    [self willChangeValueForKey:@"isRunning"];
+    isRunning = value;
+    [self didChangeValueForKey:@"isRunning"];
+    
+}
+//
+- (void)setSignalStrength:(NSInteger)value{
+    [self willChangeValueForKey:@"signalStrength"];
+    signalStrength = value;
+    [self didChangeValueForKey:@"signalStrength"];
+}
+#pragma mark Delegates
+
+- (void)windowWillClose:(NSNotification *)notification {
+    NSLog(@"Window will close");
+    [self setIsRunning:NO];
+}
+
+- (void)windowDidBecomeKey:(NSNotification *)notification{
+    NSLog(@"Window did expose");
+    [self setIsRunning:YES];
+}
+
 @end
+
+
