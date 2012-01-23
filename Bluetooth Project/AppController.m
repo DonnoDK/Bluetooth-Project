@@ -28,7 +28,8 @@
     trayStatusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [trayStatusItem setTitle:@"BTLock"]; //set icon instead at later stage
     [trayStatusItem setMenu:trayMenu];
-    
+    pairedDevices = [IOBluetoothDevice pairedDevices];
+    NSLog(@"Paired devices: %@", pairedDevices);
     
     // load preferences
 #ifdef DEBUG
