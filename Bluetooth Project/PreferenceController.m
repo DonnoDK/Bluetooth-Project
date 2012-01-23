@@ -157,15 +157,41 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
     }
 }
 
+#pragma mark Accessors
+
+//overload
+- (void)setCountdownValue:(NSUInteger)value {
+    [PreferenceController setPreferenceCountDownValue:value];
+    [self willChangeValueForKey:@"countdownValue"];
+    countdownValue = value;
+    [self didChangeValueForKey:@"countdownValue"];
+}
+//overload
 - (void)setDimDisplay:(BOOL)value {
     [PreferenceController setPreferenceDimDisplay:value];
     [self willChangeValueForKey:@"dimDisplay"];
     dimDisplay = value;
     [self didChangeValueForKey:@"dimDisplay"];
-    
-#ifdef DEBUG
-    NSLog(@"Calling setDimDisplay");
-#endif
 }
-
+//overload
+- (void)setLockScreen:(BOOL)value {
+    [PreferenceController setPreferenceLockScreen:value];
+    [self willChangeValueForKey:@"lockScreen"];
+    lockScreen = value;
+    [self didChangeValueForKey:@"lockScreen"];
+}
+//overload
+- (void)setDimKeyboard:(BOOL)value {
+    [PreferenceController setPreferenceDimKeyboard:value];
+    [self willChangeValueForKey:@"dimKeyboard"];
+    dimKeyboard = value;
+    [self didChangeValueForKey:@"dimKeyboard"];
+}
+//overload
+- (void)setThresholdValue:(NSUInteger)value {
+    [PreferenceController setPreferenceThresholdValue:value];
+    [self willChangeValueForKey:@"thresholdValue"];
+    thresholdValue = value;
+    [self didChangeValueForKey:@"thresholdValue"];
+}
 @end
