@@ -8,7 +8,7 @@
 
 #import "AppController.h"
 #import "PreferenceController.h"
-#import "SetupController.h"
+
 @implementation AppController
 -(id)init{
     self = [super init];
@@ -28,23 +28,11 @@
     trayStatusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [trayStatusItem setTitle:@"BTLock"]; //set icon instead at later stage
     [trayStatusItem setMenu:trayMenu];
-    pairedDevices = [IOBluetoothDevice pairedDevices];
-    NSLog(@"Paired devices: %@", pairedDevices);
-    
+        
     // load preferences
 #ifdef DEBUG
 #endif
-    firstTimeLaunched = NO; // Change this to not display the setup screen at startup
-    // is this the first time the app is launched?
-    if (firstTimeLaunched) {
-        // show setup screen and prompt the user to discover/pair a device for use in the app
-        if (!setupController) {
-            setupController = [[SetupController alloc] init];
-        }
-        [setupController showWindow:self];
-    }
-    
-    
+        
     // enter loop polling signal strength
     // is the setupscreen and prefwindow NOT visible?
     // what is the signal strength?

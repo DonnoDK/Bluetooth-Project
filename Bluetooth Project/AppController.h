@@ -18,7 +18,6 @@
     PreferenceController *preferenceController; // for the preference window controller
     SetupController *setupController; // for the setup window controller
     BOOL firstTimeLaunched; //This is purely for testing
-    NSArray *pairedDevices;
 }
 -(IBAction)showPref:(id)sender;
 @end
