@@ -36,6 +36,7 @@
     // load preferences
     #ifdef DEBUG
     #endif
+
     firstTimeLaunched = NO; // Change this to not display the setup screen at startup
     // is this the first time the app is launched?
     if (firstTimeLaunched) {
