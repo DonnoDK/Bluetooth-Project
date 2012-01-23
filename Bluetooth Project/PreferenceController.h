@@ -17,10 +17,10 @@ extern NSString * const BBAThresholdValueKey;
 @interface PreferenceController : NSWindowController <NSWindowDelegate> 
 
 @property (nonatomic) NSUInteger countdownValue;
-@property BOOL lockScreen;
+@property (nonatomic) BOOL lockScreen;
 @property (nonatomic) BOOL dimDisplay;
-@property BOOL dimKeyboard;
-@property NSUInteger thresholdValue;
+@property (nonatomic) BOOL dimKeyboard;
+@property (nonatomic) NSUInteger thresholdValue;
 @property NSUInteger signalStrength; // Not stored as a default
 
 + (NSUInteger)preferenceCountDownValue;
