@@ -51,6 +51,8 @@
 >>>>>>> ad8f6c871be42e78a4593c030fd977741ffc0c59
 =======
 >>>>>>> ad8f6c871be42e78a4593c030fd977741ffc0c59
+=======
+>>>>>>> ad8f6c871be42e78a4593c030fd977741ffc0c59
     firstTimeLaunched = NO; // Change this to not display the setup screen at startup
     // is this the first time the app is launched?
     if (firstTimeLaunched) {
