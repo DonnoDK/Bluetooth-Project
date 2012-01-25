@@ -20,8 +20,11 @@ extern NSString * const BBAThresholdValueKey;
     IOBluetoothDeviceSelectorController *bluetoothSelectorController;
     void * contextInfo;
     
+    __weak NSPopUpButton *deviceSelector;
     
 }
+- (IBAction)refreshDeviceList:(id)sender;
+@property (nonatomic, assign) NSArray * pairedDevices;
 @property (nonatomic) BOOL isRunning;
 @property (nonatomic, assign) NSString *selectedDeviceName;
 @property (nonatomic, assign) IOBluetoothDevice *selectedDevice;
@@ -56,4 +59,5 @@ extern NSString * const BBAThresholdValueKey;
            context:(void *)v;
 -(void)changeSelectedDevice;
 -(void)updateIndicator;
+@property (weak) IBOutlet NSPopUpButton *deviceSelector;
 @end

@@ -23,6 +23,7 @@ NSString * const BBADimKeyboardKey       = @"BBADimKeyboard";
 NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 
 @implementation PreferenceController
+@synthesize deviceSelector;
 @synthesize isRunning;
 @synthesize countdownValue; // Seconds before actions are taken, after connection is lost
 @synthesize lockScreen;     // Lock screen?
@@ -32,6 +33,7 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 @synthesize signalStrength; // Current signal strength
 @synthesize selectedDeviceName; // name of the currently selected device
 @synthesize selectedDevice;
+@synthesize pairedDevices;
 
 #pragma mark Defaults
 + (void)initialize {
@@ -126,7 +128,8 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
     [self setDimDisplay:[PreferenceController preferenceDimDisplay]];
     [self setDimKeyboard:[PreferenceController preferenceDimKeyboard]];
     [self setThresholdValue:[PreferenceController preferenceThresholdValue]];
-    [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(updateIndicator) userInfo:nil repeats:YES];
+    [self setPairedDevices:[IOBluetoothDevice pairedDevices]];
+    //[NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(updateIndicator) userInfo:nil repeats:YES];
 }
 -(void)updateIndicator{
     if ([self isRunning]){
@@ -260,6 +263,11 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
     [self setIsRunning:YES];
 }
 
+- (IBAction)refreshDeviceList:(id)sender {
+    [self setPairedDevices:[IOBluetoothDevice pairedDevices]];
+    NSLog(@"Paired device: %@", [self pairedDevices]);
+    NSLog(@"is device selector enabled? %d", [deviceSelector isEnabled]);
+}
 @end
 
 

@@ -14,6 +14,7 @@
     self = [super init];
     if (self) {
         preferenceController = [[PreferenceController alloc] init];
+        [preferenceController showWindow:self];
     }
     return self;
 }
