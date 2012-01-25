@@ -24,6 +24,8 @@ extern NSString * const BBAThresholdValueKey;
     
 }
 - (IBAction)refreshDeviceList:(id)sender;
+- (void)lockdown;
+
 @property (nonatomic, assign) NSArray * pairedDevices;
 @property (nonatomic) BOOL isRunning;
 @property (nonatomic, assign) NSString *selectedDeviceName;
@@ -32,12 +34,12 @@ extern NSString * const BBAThresholdValueKey;
 @property (nonatomic) BOOL lockScreen;
 @property (nonatomic) BOOL dimDisplay;
 @property (nonatomic) BOOL dimKeyboard;
-@property (nonatomic) NSUInteger thresholdValue;
+@property (nonatomic) NSInteger thresholdValue;
 @property (nonatomic) NSInteger signalStrength; // Not stored as a default
 -(IBAction)selectDevice:(id)sender;
 -(IBAction)addNewDevice:(id)sender;
 
-+ (NSUInteger)preferenceCountDownValue;
++ (NSInteger)preferenceCountDownValue;
 + (void)setPreferenceCountDownValue:(NSUInteger)value;
 
 + (BOOL)preferenceLockScreen;
@@ -50,7 +52,7 @@ extern NSString * const BBAThresholdValueKey;
 + (void)setPreferenceDimKeyboard:(BOOL)value;
 
 + (NSUInteger)preferenceThresholdValue;
-+ (void)setPreferenceThresholdValue:(NSUInteger)value;
++ (void)setPreferenceThresholdValue:(NSInteger)value;
 
 - (IBAction)resetToDefaults:(id)sender;
 

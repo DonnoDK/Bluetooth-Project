@@ -57,7 +57,7 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 }
 
 // Set and get defaults for count down value
-+ (NSUInteger)preferenceCountDownValue {
++ (NSInteger)preferenceCountDownValue {
     return [[NSUserDefaults standardUserDefaults] integerForKey:BBACountDownValueKey];
 }
 + (void)setPreferenceCountDownValue:(NSUInteger)value {
@@ -93,7 +93,7 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 + (NSUInteger)preferenceThresholdValue {
     return [[NSUserDefaults standardUserDefaults] integerForKey:BBAThresholdValueKey];
 }
-+ (void)setPreferenceThresholdValue:(NSUInteger)value {
++ (void)setPreferenceThresholdValue:(NSInteger)value {
     [[NSUserDefaults standardUserDefaults] setInteger:value forKey:BBAThresholdValueKey];
 }
 
@@ -151,6 +151,7 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
             [self setSignalStrength:[selectedDevice RSSI]];
             if ([self signalStrength] < [self thresholdValue]) {
                 NSLog(@"Device out of range - locking");
+               // [self lockdown];
             }
         }
     }
@@ -180,11 +181,11 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
     
     // If YES is returned, reset the preferences to defaults.
     if (choise == NSAlertDefaultReturn) {
-        [self setDimDisplay:YES];
-        [self setLockScreen:YES];
-        [self setDimKeyboard:YES];
-        [self setCountdownValue:30];
-        [self setThresholdValue:50];
+        [self setDimDisplay:DEFAULT_DIM_DISPLAY];
+        [self setLockScreen:DEFAULT_LOCK_SCREEN];
+        [self setDimKeyboard:DEFAULT_DIM_KEYBOARD];
+        [self setCountdownValue:DEFAULT_COUNT_DOWN_VALUE];
+        [self setThresholdValue:DEFAULT_THRESHOLD_VALUE];
     }
 }
 
@@ -240,13 +241,13 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
     [self didChangeValueForKey:@"dimKeyboard"];
 }
 //overload
-- (void)setThresholdValue:(NSUInteger)value {
+- (void)setThresholdValue:(NSInteger)value {
     NSLog(@"Changing thresholdvalue");
     [PreferenceController setPreferenceThresholdValue:value];
     [self willChangeValueForKey:@"thresholdValue"];
     thresholdValue = value;
     [self didChangeValueForKey:@"thresholdValue"];
-    NSLog(@"Changed to: %lu", value);
+    NSLog(@"Changed to: %ld", value);
 }
 //overload
 - (void)setSelectedDeviceName:(NSString *)value{
@@ -281,6 +282,15 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 
 - (IBAction)refreshDeviceList:(id)sender {
     [self setPairedDevices:[IOBluetoothDevice pairedDevices]];
+}
+- (void)lockdown {
+    NSTask *task;
+    NSMutableArray *arguments = [NSArray arrayWithObject:@"-suspend"];
+    
+    task = [[NSTask alloc] init];
+    [task setArguments: arguments];
+    [task setLaunchPath: @"/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession"];
+    [task launch];
 }
 @end
 
