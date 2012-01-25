@@ -19,9 +19,9 @@ extern NSString * const BBAThresholdValueKey;
 @interface PreferenceController : NSWindowController <NSWindowDelegate> {
     IOBluetoothDeviceSelectorController *bluetoothSelectorController;
     void * contextInfo;
-    
+    BOOL shouldLock;
     __weak NSPopUpButton *deviceSelector;
-    
+    NSTask *task;
 }
 - (IBAction)refreshDeviceList:(id)sender;
 - (void)lockdown;
@@ -38,6 +38,7 @@ extern NSString * const BBAThresholdValueKey;
 @property (nonatomic) NSInteger signalStrength; // Not stored as a default
 -(IBAction)selectDevice:(id)sender;
 -(IBAction)addNewDevice:(id)sender;
+-(void)enableLocking;
 
 + (NSInteger)preferenceCountDownValue;
 + (void)setPreferenceCountDownValue:(NSUInteger)value;

@@ -108,6 +108,10 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
                selector:@selector(refreshDeviceList:)
                    name:NSPopUpButtonCellWillPopUpNotification
                  object:nil];
+        
+        shouldLock = YES; // assume yes
+        task = [[NSTask alloc] init];
+            [task setLaunchPath: @"/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"];
     }
     
 #ifdef DEBUG
@@ -139,19 +143,28 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 }
 -(void)updateIndicator{
     if ([self isRunning]){
-        //NSLog(@"Are we running?");
-        //NSLog(@"Name of selected device: %@", [selectedDevice name]);
+        
+        if ([task isRunning])
+            shouldLock = NO;
+        else {
+            task = [[NSTask alloc] init];
+            [task setLaunchPath: @"/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"];
+            shouldLock = YES;
+        }
+
         if (selectedDevice && ![selectedDevice isConnected]) {
-            //NSLog(@"Are we connected?");
             [selectedDevice openConnection];
             [self setSignalStrength:-20];
         }
+        
         if (selectedDevice && [selectedDevice isConnected]){
-            //NSLog(@"Connecting established");
             [self setSignalStrength:[selectedDevice RSSI]];
             if ([self signalStrength] < [self thresholdValue]) {
                 NSLog(@"Device out of range - locking");
-               // [self lockdown];
+                if (shouldLock) {
+                    shouldLock = NO;
+                    [task launch];
+                }
             }
         }
     }
@@ -283,15 +296,7 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 - (IBAction)refreshDeviceList:(id)sender {
     [self setPairedDevices:[IOBluetoothDevice pairedDevices]];
 }
-- (void)lockdown {
-    NSTask *task;
-    NSMutableArray *arguments = [NSArray arrayWithObject:@"-suspend"];
-    
-    task = [[NSTask alloc] init];
-    [task setArguments: arguments];
-    [task setLaunchPath: @"/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession"];
-    [task launch];
-}
+
 @end
 
 
