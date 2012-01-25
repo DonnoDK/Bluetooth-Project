@@ -102,6 +102,12 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
     self = [super initWithWindowNibName:@"Preference"];
     if (self) {
         [self setSignalStrength:-20];
+        
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        [nc addObserver:self
+               selector:@selector(refreshDeviceList:)
+                   name:NSPopUpButtonCellWillPopUpNotification
+                 object:nil];
     }
     
 #ifdef DEBUG
