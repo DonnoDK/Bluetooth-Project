@@ -13,7 +13,7 @@
 #define DEFAULT_LOCK_SCREEN         TRUE
 #define DEFAULT_DIM_DISPLAY         TRUE
 #define DEFAULT_DIM_KEYBOARD        TRUE
-#define DEFAULT_THRESHOLD_VALUE     50
+#define DEFAULT_THRESHOLD_VALUE     -5
 
 // Holds the relevant keys in the .plist in ~/Library/Preferences/
 NSString * const BBACountDownValueKey    = @"BBACountDownValue";
@@ -135,16 +135,23 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
     [self setDimKeyboard:[PreferenceController preferenceDimKeyboard]];
     [self setThresholdValue:[PreferenceController preferenceThresholdValue]];
     [self setPairedDevices:[IOBluetoothDevice pairedDevices]];
-    //[NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(updateIndicator) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(updateIndicator) userInfo:nil repeats:YES];
 }
 -(void)updateIndicator{
     if ([self isRunning]){
+        //NSLog(@"Are we running?");
+        //NSLog(@"Name of selected device: %@", [selectedDevice name]);
         if (selectedDevice && ![selectedDevice isConnected]) {
+            //NSLog(@"Are we connected?");
             [selectedDevice openConnection];
             [self setSignalStrength:-20];
         }
         if (selectedDevice && [selectedDevice isConnected]){
+            //NSLog(@"Connecting established");
             [self setSignalStrength:[selectedDevice RSSI]];
+            if ([self signalStrength] < [self thresholdValue]) {
+                NSLog(@"Device out of range - locking");
+            }
         }
     }
 }
@@ -182,12 +189,13 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 }
 
 -(IBAction)selectDevice:(id)sender{
-    bluetoothSelectorController = [[IOBluetoothDeviceSelectorController alloc] init];
-    if (!bluetoothSelectorController) {
-        NSLog(@"dealloced");
+    NSInteger sel = [sender indexOfSelectedItem];
+    if (sel > -1) {
+        [self setSelectedDevice:[pairedDevices objectAtIndex:sel]];
+    }else{
+        [self setSelectedDevice:nil];
     }
-    [bluetoothSelectorController beginSheetModalForWindow:[self window] modalDelegate:self didEndSelector:@selector(changeSelectedDevice) contextInfo:(void *)contextInfo];
-    free(contextInfo);
+    
 }
      
 -(void)changeSelectedDevice{
@@ -233,10 +241,12 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 }
 //overload
 - (void)setThresholdValue:(NSUInteger)value {
+    NSLog(@"Changing thresholdvalue");
     [PreferenceController setPreferenceThresholdValue:value];
     [self willChangeValueForKey:@"thresholdValue"];
     thresholdValue = value;
     [self didChangeValueForKey:@"thresholdValue"];
+    NSLog(@"Changed to: %lu", value);
 }
 //overload
 - (void)setSelectedDeviceName:(NSString *)value{
@@ -271,8 +281,6 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 
 - (IBAction)refreshDeviceList:(id)sender {
     [self setPairedDevices:[IOBluetoothDevice pairedDevices]];
-    NSLog(@"Paired device: %@", [self pairedDevices]);
-    NSLog(@"is device selector enabled? %d", [deviceSelector isEnabled]);
 }
 @end
 

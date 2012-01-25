@@ -80,9 +80,9 @@
 								<string key="NSContents"/>
 								<string key="NSCellIdentifier">_NS:779</string>
 								<reference key="NSControlView" ref="253259005"/>
-								<double key="NSMaxValue">100</double>
-								<double key="NSMinValue">0.0</double>
-								<double key="NSValue">50</double>
+								<double key="NSMaxValue">0.0</double>
+								<double key="NSMinValue">-22</double>
+								<double key="NSValue">0.0</double>
 								<double key="NSAltIncValue">0.0</double>
 								<int key="NSNumberOfTickMarks">0</int>
 								<int key="NSTickMarkPosition">1</int>
@@ -106,7 +106,6 @@
 								<reference key="NSControlView" ref="501706472"/>
 								<double key="NSValue">2</double>
 								<double key="NSMinValue">-20</double>
-								<double key="NSMaxValue">2</double>
 								<double key="NSWarningValue">2</double>
 								<double key="NSCriticalValue">2</double>
 								<int key="NSIndicatorStyle">1</int>
@@ -709,11 +708,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">refreshDeviceList:</string>
+						<string key="label">selectDevice:</string>
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="1013041514"/>
 					</object>
-					<int key="connectionID">199</int>
+					<int key="connectionID">200</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -738,6 +737,22 @@
 						</object>
 					</object>
 					<int key="connectionID">84</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: self.thresholdValue</string>
+						<reference key="source" ref="129037874"/>
+						<reference key="destination" ref="1001"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="129037874"/>
+							<reference key="NSDestination" ref="1001"/>
+							<string key="NSLabel">value: self.thresholdValue</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">self.thresholdValue</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">205</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -1433,7 +1448,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">199</int>
+			<int key="maxID">205</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
