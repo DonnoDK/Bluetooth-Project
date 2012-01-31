@@ -22,6 +22,7 @@ extern NSString * const BBAThresholdValueKey;
     BOOL shouldLock;
     //__weak NSPopUpButton *deviceSelector;
     NSTask *task;
+    BOOL tryingToConnect;
 }
 
 - (IBAction)refreshDeviceList:(id)sender;

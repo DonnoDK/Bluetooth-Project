@@ -149,11 +149,22 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
         shouldLock = YES;
     }
     if (selectedDevice && ![selectedDevice isConnected]) {
-        [selectedDevice openConnection];
-        [self setSignalStrength:-20];
+        if (!tryingToConnect) {
+            NSThread *conThread = [[NSThread alloc] initWithTarget:self
+                                                          selector:@selector(tryOpeningNewConnection) object:nil];
+            [conThread start];
+            NSLog(@"Establishing new connection");
+            [self setSignalStrength:-20];
+            tryingToConnect = YES;
+        }
+        
+        
     }
         
     if (selectedDevice && [selectedDevice isConnected]){
+        if (tryingToConnect) {
+            tryingToConnect = NO;
+        }
         [self setSignalStrength:[selectedDevice RSSI]];
         if ([self signalStrength] < [self thresholdValue]) {
             NSLog(@"Device out of range - locking");
@@ -167,6 +178,12 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
     }
     
 }
+
+                                                                              
+-(void)tryOpeningNewConnection{
+    [selectedDevice openConnection];
+}
+
 
 #pragma mark IBActions
 

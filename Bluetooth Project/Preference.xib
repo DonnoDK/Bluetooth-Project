@@ -198,6 +198,7 @@
 											<reference key="NSTarget" ref="679371046"/>
 										</object>
 									</object>
+									<bool key="NSNoAutoenable">YES</bool>
 									<reference key="NSMenuFont" ref="46282697"/>
 								</object>
 								<int key="NSPreferredEdge">1</int>
@@ -262,7 +263,6 @@
 											<string key="NSFrame">{{116, 14}, {223, 16}}</string>
 											<reference key="NSSuperview" ref="429729628"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView"/>
 											<string key="NSReuseIdentifierKey">_NS:2200</string>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSLevelIndicatorCell" key="NSCell" id="964170081">
