@@ -142,33 +142,29 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
     [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(updateIndicator) userInfo:nil repeats:YES];
 }
 -(void)updateIndicator{
-    if ([self isRunning]){
+    if ([task isRunning])
+        shouldLock = NO;
+    else {
+        shouldLock = YES;
+    }
+    if (selectedDevice && ![selectedDevice isConnected]) {
+        [selectedDevice openConnection];
+        [self setSignalStrength:-20];
+    }
         
-        if ([task isRunning])
-            shouldLock = NO;
-        else {
-            
-            shouldLock = YES;
-        }
-
-        if (selectedDevice && ![selectedDevice isConnected]) {
-            [selectedDevice openConnection];
-            [self setSignalStrength:-20];
-        }
-        
-        if (selectedDevice && [selectedDevice isConnected]){
-            [self setSignalStrength:[selectedDevice RSSI]];
-            if ([self signalStrength] < [self thresholdValue]) {
-                NSLog(@"Device out of range - locking");
-                if (shouldLock) {
-                    shouldLock = NO;
-                    task = [[NSTask alloc] init];
-                    [task setLaunchPath: @"/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"];
-                    [task launch];
-                }
+    if (selectedDevice && [selectedDevice isConnected]){
+        [self setSignalStrength:[selectedDevice RSSI]];
+        if ([self signalStrength] < [self thresholdValue]) {
+            NSLog(@"Device out of range - locking");
+            if (shouldLock) {
+                shouldLock = NO;
+                task = [[NSTask alloc] init];
+                [task setLaunchPath: @"/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"];
+                [task launch];
             }
         }
     }
+    
 }
 
 #pragma mark IBActions
