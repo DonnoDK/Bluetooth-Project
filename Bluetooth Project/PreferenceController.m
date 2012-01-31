@@ -181,9 +181,10 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
     [alert beginSheetModalForWindow:nil
                       modalDelegate:self
                      didEndSelector:@selector(alertEnded:code:context:)
-                                              contextInfo:NULL];
+                        contextInfo:NULL];
     
 }
+
 
 - (void)alertEnded:(NSAlert *)alert
               code:(NSInteger)choise
@@ -197,6 +198,33 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
         [self setCountdownValue:DEFAULT_COUNT_DOWN_VALUE];
         [self setThresholdValue:DEFAULT_THRESHOLD_VALUE];
     }
+}
+
+- (IBAction)help:(id)sender {
+    NSAlert *help = [NSAlert alertWithMessageText:@"If you device is not currently listed,\nyou will need to have pair it with your Mac.\n\nUse the Bluetooth setup assistant to do so."
+                                    defaultButton:@"Open Bluetooth Assistant"
+                                  alternateButton:@"OK"
+                                      otherButton:nil
+                        informativeTextWithFormat:@""];
+    [help setIcon:[NSImage imageNamed:@"bluetoothIcon"]];
+    
+    [help beginSheetModalForWindow:[self window]
+                     modalDelegate:self
+                    didEndSelector:@selector(helpEnded:code:context:)
+                       contextInfo:NULL];
+}
+- (void)helpEnded:(NSAlert *)alert
+             code:(NSInteger)choise
+          context:(void *)v {
+    
+    if (choise == NSAlertDefaultReturn) {
+        NSTask *bttask;
+        bttask = [[NSTask alloc] init];
+        [bttask setLaunchPath: @"/System/Library/CoreServices/Bluetooth Setup Assistant.app/Contents/MacOS/Bluetooth Setup Assistant"];
+        [bttask launch];
+    }
+
+    
 }
 
 -(IBAction)selectDevice:(id)sender{

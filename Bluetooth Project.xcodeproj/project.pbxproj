@@ -18,6 +18,7 @@
 		D8104C1414C9A07C00FB1711 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8104C1314C9A07C00FB1711 /* MainMenu.xib */; };
 		D872BA4B14C997FD00F35897 /* Preference.xib in Resources */ = {isa = PBXBuildFile; fileRef = D872BA4A14C997FD00F35897 /* Preference.xib */; };
 		D872BA4E14C9982A00F35897 /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = D872BA4D14C9982A00F35897 /* PreferenceController.m */; };
+		D8E5F2B114D835D8004F6FE1 /* bluetoothIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D8E5F2B014D835D8004F6FE1 /* bluetoothIcon.icns */; };
 		D8E6579314C9A35300B300D2 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6579214C9A35300B300D2 /* AppController.m */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		D872BA4A14C997FD00F35897 /* Preference.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preference.xib; sourceTree = "<group>"; };
 		D872BA4C14C9982A00F35897 /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
 		D872BA4D14C9982A00F35897 /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
+		D8E5F2B014D835D8004F6FE1 /* bluetoothIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = bluetoothIcon.icns; sourceTree = "<group>"; };
 		D8E6579114C9A35300B300D2 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		D8E6579214C9A35300B300D2 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +64,7 @@
 		682EF9E614C9926A0059B8A4 = {
 			isa = PBXGroup;
 			children = (
+				D8E5F2B014D835D8004F6FE1 /* bluetoothIcon.icns */,
 				682EF9FB14C9926A0059B8A4 /* Bluetooth Project */,
 				682EF9F414C9926A0059B8A4 /* Frameworks */,
 				682EF9F214C9926A0059B8A4 /* Products */,
@@ -188,6 +191,7 @@
 				682EFA0614C9926B0059B8A4 /* Credits.rtf in Resources */,
 				D872BA4B14C997FD00F35897 /* Preference.xib in Resources */,
 				D8104C1414C9A07C00FB1711 /* MainMenu.xib in Resources */,
+				D8E5F2B114D835D8004F6FE1 /* bluetoothIcon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

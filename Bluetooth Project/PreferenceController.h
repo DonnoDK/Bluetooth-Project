@@ -40,6 +40,11 @@ extern NSString * const BBAThresholdValueKey;
 -(IBAction)addNewDevice:(id)sender;
 -(void)enableLocking;
 
+- (IBAction)help:(id)sender;
+- (void)helpEnded:(NSAlert *)alert
+             code:(NSInteger)choise
+          context:(void *)v;
+
 + (NSInteger)preferenceCountDownValue;
 + (void)setPreferenceCountDownValue:(NSUInteger)value;
 
