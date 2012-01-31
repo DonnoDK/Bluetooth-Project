@@ -23,6 +23,7 @@ NSString * const BBADimKeyboardKey       = @"BBADimKeyboard";
 NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 
 @implementation PreferenceController
+
 @synthesize deviceSelector;
 @synthesize isRunning;
 @synthesize countdownValue; // Seconds before actions are taken, after connection is lost

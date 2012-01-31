@@ -20,9 +20,10 @@ extern NSString * const BBAThresholdValueKey;
     IOBluetoothDeviceSelectorController *bluetoothSelectorController;
     void * contextInfo;
     BOOL shouldLock;
-    __weak NSPopUpButton *deviceSelector;
+    //__weak NSPopUpButton *deviceSelector;
     NSTask *task;
 }
+
 - (IBAction)refreshDeviceList:(id)sender;
 - (void)lockdown;
 
@@ -67,5 +68,5 @@ extern NSString * const BBAThresholdValueKey;
            context:(void *)v;
 -(void)changeSelectedDevice;
 -(void)updateIndicator;
-@property (weak) IBOutlet NSPopUpButton *deviceSelector;
+@property (strong) IBOutlet NSPopUpButton *deviceSelector;
 @end
