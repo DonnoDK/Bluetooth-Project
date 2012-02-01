@@ -141,41 +141,42 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
     [self setThresholdValue:[PreferenceController preferenceThresholdValue]];
     [self setPairedDevices:[IOBluetoothDevice pairedDevices]];
     //conThread = [[NSThread alloc] initWithTarget:self selector:@selector(tryOpeningNewConnection) object:nil];
-    [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateIndicator) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:1.5f target:self selector:@selector(updateIndicator) userInfo:nil repeats:YES];
 }
 -(void)updateIndicator{
-    if ([task isRunning])
-        shouldLock = NO;
-    else {
-        shouldLock = YES;
+    if (![task isRunning]) {
         if (selectedDevice && ![selectedDevice isConnected]) {
+            NSLog(@"No connection - attempting to establish new connection");
             [self setSignalStrength:-20];
             if (![conThread isExecuting]) {
                 conThread = [[NSThread alloc] initWithTarget:self selector:@selector(tryOpeningNewConnection) object:nil];
                 [conThread start];
+            }else{
+                NSLog(@"Abort attempt - already attempting to establish connection");
             }
         }
-    }
-    if (selectedDevice && [selectedDevice isConnected]){
-        [self setSignalStrength:[selectedDevice RSSI]];
-        if ([self signalStrength] < [self thresholdValue]) {
-            NSLog(@"Device out of range - locking");
-            if (shouldLock) {
-                shouldLock = NO;
-                //[selectedDevice closeConnection];
+        if (selectedDevice && [selectedDevice isConnected]){
+            NSLog(@"Polling signal strength...");
+            [self setSignalStrength:[selectedDevice RSSI]];
+            if ([self signalStrength] < [self thresholdValue]) {
+                NSLog(@"Device out of range - locking");
                 task = [[NSTask alloc] init];
                 [task setLaunchPath: @"/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"];
                 [task launch];
             }
         }
     }
-    
 }
 
                                                                               
 -(void)tryOpeningNewConnection{
     NSLog(@"Establishing new connection");
     [selectedDevice openConnection];
+    if ([selectedDevice isConnected]) {
+        NSLog(@"Connection succeded!");
+    }else{
+        NSLog(@"Error - connection could not be established!");
+    }
 }
 
 
