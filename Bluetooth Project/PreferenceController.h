@@ -42,7 +42,7 @@ extern NSString * const BBAThresholdValueKey;
 @property (nonatomic) NSInteger signalStrength; // Not stored as a default
 -(IBAction)selectDevice:(id)sender;
 -(IBAction)addNewDevice:(id)sender;
--(void)enableLocking;
+
 
 - (IBAction)help:(id)sender;
 - (void)helpEnded:(NSAlert *)alert

@@ -182,8 +182,14 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 
 -(void)lockdown{
     task = [[NSTask alloc] init];
+    //********* Using lock screen istead of screensaver is NOT good
+    //********* because we are unable to register when the user has logged in again
+    //NSMutableArray *arguments = [NSArray arrayWithObject:@"-suspend"];
+    //[task setArguments: arguments];
+    //[task setLaunchPath: @"/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession"];
+    //********* Therefore using screen saver instead
     [task setLaunchPath: @"/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"];
-        //[task setLaunchPath: @"/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession -suspend"];
+        
     [task launch];
 }
 

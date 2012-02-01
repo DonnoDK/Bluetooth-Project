@@ -27,8 +27,11 @@
 
 -(void)awakeFromNib{
     trayStatusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    [trayStatusItem setTitle:@"BTLock"]; //set icon instead at later stage
+    //[trayStatusItem setTitle:@"BTLock"]; //set icon instead at later stage
     [trayStatusItem setMenu:trayMenu];
+    NSImage *taskIcon = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"icon_20x20" ofType:@"png"]];
+    [trayStatusItem setImage:taskIcon];
+    
         
     // load preferences
 #ifdef DEBUG
