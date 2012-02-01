@@ -30,7 +30,7 @@ extern NSString * const BBAThresholdValueKey;
 - (void)lockdown;
 
 
-@property (nonatomic, assign) NSArray * pairedDevices;
+@property (nonatomic, strong) NSArray * pairedDevices;
 @property (nonatomic) BOOL isRunning;
 @property (nonatomic, assign) NSString *selectedDeviceName;
 @property (nonatomic, assign) IOBluetoothDevice *selectedDevice;
