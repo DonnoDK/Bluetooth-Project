@@ -140,36 +140,29 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
     [self setDimKeyboard:[PreferenceController preferenceDimKeyboard]];
     [self setThresholdValue:[PreferenceController preferenceThresholdValue]];
     [self setPairedDevices:[IOBluetoothDevice pairedDevices]];
-    [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(updateIndicator) userInfo:nil repeats:YES];
+    //conThread = [[NSThread alloc] initWithTarget:self selector:@selector(tryOpeningNewConnection) object:nil];
+    [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateIndicator) userInfo:nil repeats:YES];
 }
 -(void)updateIndicator{
     if ([task isRunning])
         shouldLock = NO;
     else {
         shouldLock = YES;
-    }
-    if (selectedDevice && ![selectedDevice isConnected]) {
-        if (!tryingToConnect) {
-            NSThread *conThread = [[NSThread alloc] initWithTarget:self
-                                                          selector:@selector(tryOpeningNewConnection) object:nil];
-            [conThread start];
-            NSLog(@"Establishing new connection");
+        if (selectedDevice && ![selectedDevice isConnected]) {
             [self setSignalStrength:-20];
-            tryingToConnect = YES;
+            if (![conThread isExecuting]) {
+                conThread = [[NSThread alloc] initWithTarget:self selector:@selector(tryOpeningNewConnection) object:nil];
+                [conThread start];
+            }
         }
-        
-        
     }
-        
     if (selectedDevice && [selectedDevice isConnected]){
-        if (tryingToConnect) {
-            tryingToConnect = NO;
-        }
         [self setSignalStrength:[selectedDevice RSSI]];
         if ([self signalStrength] < [self thresholdValue]) {
             NSLog(@"Device out of range - locking");
             if (shouldLock) {
                 shouldLock = NO;
+                //[selectedDevice closeConnection];
                 task = [[NSTask alloc] init];
                 [task setLaunchPath: @"/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"];
                 [task launch];
@@ -181,6 +174,7 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 
                                                                               
 -(void)tryOpeningNewConnection{
+    NSLog(@"Establishing new connection");
     [selectedDevice openConnection];
 }
 
