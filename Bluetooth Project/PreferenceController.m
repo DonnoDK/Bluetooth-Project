@@ -111,8 +111,8 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
                  object:nil];
         
         //shouldLock = YES; // assume yes
-        task = [[NSTask alloc] init];
-          [task setLaunchPath: @"/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"];
+        //task = [[NSTask alloc] init];
+          //[task setLaunchPath: @"/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"];
     }
     
 #ifdef DEBUG
