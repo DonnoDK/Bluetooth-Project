@@ -18,6 +18,10 @@
 		D8104C1414C9A07C00FB1711 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8104C1314C9A07C00FB1711 /* MainMenu.xib */; };
 		D872BA4B14C997FD00F35897 /* Preference.xib in Resources */ = {isa = PBXBuildFile; fileRef = D872BA4A14C997FD00F35897 /* Preference.xib */; };
 		D872BA4E14C9982A00F35897 /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = D872BA4D14C9982A00F35897 /* PreferenceController.m */; };
+		D8B084F214D97EA700CF8247 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D8B084EF14D97EA700CF8247 /* icon.icns */; };
+		D8B084F314D97EA700CF8247 /* Icon after I changed it.png in Resources */ = {isa = PBXBuildFile; fileRef = D8B084F014D97EA700CF8247 /* Icon after I changed it.png */; };
+		D8B084F414D97EA700CF8247 /* Orginal icon before I changed it.png in Resources */ = {isa = PBXBuildFile; fileRef = D8B084F114D97EA700CF8247 /* Orginal icon before I changed it.png */; };
+		D8B084F614D97EC100CF8247 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D8B084F514D97EC100CF8247 /* icon.icns */; };
 		D8E5F2B114D835D8004F6FE1 /* bluetoothIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D8E5F2B014D835D8004F6FE1 /* bluetoothIcon.icns */; };
 		D8E6579314C9A35300B300D2 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6579214C9A35300B300D2 /* AppController.m */; };
 /* End PBXBuildFile section */
@@ -42,6 +46,10 @@
 		D872BA4A14C997FD00F35897 /* Preference.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preference.xib; sourceTree = "<group>"; };
 		D872BA4C14C9982A00F35897 /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
 		D872BA4D14C9982A00F35897 /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
+		D8B084EF14D97EA700CF8247 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		D8B084F014D97EA700CF8247 /* Icon after I changed it.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon after I changed it.png"; sourceTree = "<group>"; };
+		D8B084F114D97EA700CF8247 /* Orginal icon before I changed it.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Orginal icon before I changed it.png"; sourceTree = "<group>"; };
+		D8B084F514D97EC100CF8247 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		D8E5F2B014D835D8004F6FE1 /* bluetoothIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = bluetoothIcon.icns; sourceTree = "<group>"; };
 		D8E6579114C9A35300B300D2 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		D8E6579214C9A35300B300D2 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
@@ -64,6 +72,7 @@
 		682EF9E614C9926A0059B8A4 = {
 			isa = PBXGroup;
 			children = (
+				D8B084F514D97EC100CF8247 /* icon.icns */,
 				D8E5F2B014D835D8004F6FE1 /* bluetoothIcon.icns */,
 				682EF9FB14C9926A0059B8A4 /* Bluetooth Project */,
 				682EF9F414C9926A0059B8A4 /* Frameworks */,
@@ -103,6 +112,7 @@
 		682EF9FB14C9926A0059B8A4 /* Bluetooth Project */ = {
 			isa = PBXGroup;
 			children = (
+				D8B084ED14D97E9500CF8247 /* Images */,
 				D872BA4814C997BD00F35897 /* Preference Panel */,
 				D8104C1314C9A07C00FB1711 /* MainMenu.xib */,
 				682EFA0714C9926B0059B8A4 /* BBAAppDelegate.h */,
@@ -135,6 +145,16 @@
 				D872BA4D14C9982A00F35897 /* PreferenceController.m */,
 			);
 			name = "Preference Panel";
+			sourceTree = "<group>";
+		};
+		D8B084ED14D97E9500CF8247 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D8B084EF14D97EA700CF8247 /* icon.icns */,
+				D8B084F014D97EA700CF8247 /* Icon after I changed it.png */,
+				D8B084F114D97EA700CF8247 /* Orginal icon before I changed it.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +212,10 @@
 				D872BA4B14C997FD00F35897 /* Preference.xib in Resources */,
 				D8104C1414C9A07C00FB1711 /* MainMenu.xib in Resources */,
 				D8E5F2B114D835D8004F6FE1 /* bluetoothIcon.icns in Resources */,
+				D8B084F214D97EA700CF8247 /* icon.icns in Resources */,
+				D8B084F314D97EA700CF8247 /* Icon after I changed it.png in Resources */,
+				D8B084F414D97EA700CF8247 /* Orginal icon before I changed it.png in Resources */,
+				D8B084F614D97EC100CF8247 /* icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

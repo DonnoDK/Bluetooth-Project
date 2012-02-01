@@ -263,6 +263,7 @@
 											<string key="NSFrame">{{116, 14}, {223, 16}}</string>
 											<reference key="NSSuperview" ref="429729628"/>
 											<reference key="NSWindow"/>
+											<reference key="NSNextKeyView"/>
 											<string key="NSReuseIdentifierKey">_NS:2200</string>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSLevelIndicatorCell" key="NSCell" id="964170081">
@@ -371,7 +372,7 @@
 								<int key="NSCellFlags2">33554432</int>
 								<object class="NSCustomResource" key="NSContents">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">NSBluetoothTemplate</string>
+									<string key="NSResourceName">Icon after I changed it</string>
 								</object>
 								<string key="NSCellIdentifier">_NS:2141</string>
 								<int key="NSAlign">0</int>
@@ -978,13 +979,13 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>NSBluetoothTemplate</string>
+				<string>Icon after I changed it</string>
 				<string>NSMenuCheckmark</string>
 				<string>NSMenuMixedState</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{7, 14}</string>
+				<string>{285, 285}</string>
 				<string>{9, 8}</string>
 				<string>{7, 2}</string>
 			</object>
