@@ -110,9 +110,9 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
                    name:NSPopUpButtonCellWillPopUpNotification
                  object:nil];
         
-        shouldLock = YES; // assume yes
+        //shouldLock = YES; // assume yes
         task = [[NSTask alloc] init];
-            [task setLaunchPath: @"/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"];
+          [task setLaunchPath: @"/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"];
     }
     
 #ifdef DEBUG
@@ -160,11 +160,12 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
             [self setSignalStrength:[selectedDevice RSSI]];
             if ([self signalStrength] < [self thresholdValue]) {
                 NSLog(@"Device out of range - locking");
-                task = [[NSTask alloc] init];
-                [task setLaunchPath: @"/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"];
-                [task launch];
+                //[self lockdown];
+                [self lockdown];
             }
         }
+    }else{
+        NSLog(@"Screensaver is running");
     }
 }
 
@@ -179,6 +180,12 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
     }
 }
 
+-(void)lockdown{
+    task = [[NSTask alloc] init];
+    [task setLaunchPath: @"/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"];
+        //[task setLaunchPath: @"/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession -suspend"];
+    [task launch];
+}
 
 #pragma mark IBActions
 

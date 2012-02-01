@@ -29,6 +29,7 @@ extern NSString * const BBAThresholdValueKey;
 - (IBAction)refreshDeviceList:(id)sender;
 - (void)lockdown;
 
+
 @property (nonatomic, assign) NSArray * pairedDevices;
 @property (nonatomic) BOOL isRunning;
 @property (nonatomic, assign) NSString *selectedDeviceName;
