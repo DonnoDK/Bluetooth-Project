@@ -35,6 +35,7 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 @synthesize selectedDeviceName; // name of the currently selected device
 @synthesize selectedDevice;
 @synthesize pairedDevices;
+@synthesize firstTimeLaunch;
 
 #pragma mark Defaults
 + (void)initialize {
@@ -227,7 +228,7 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 }
 
 - (IBAction)help:(id)sender {
-    NSAlert *help = [NSAlert alertWithMessageText:@"If you device is not currently listed,\nyou will need to have pair it with your Mac.\n\nUse the Bluetooth setup assistant to do so."
+    NSAlert *help = [NSAlert alertWithMessageText:@"If you device is not currently listed,\nyou will need to pair it with your Mac.\n\nUse the Bluetooth setup assistant to do so."
                                     defaultButton:@"Open Bluetooth Assistant"
                                   alternateButton:@"OK"
                                       otherButton:nil

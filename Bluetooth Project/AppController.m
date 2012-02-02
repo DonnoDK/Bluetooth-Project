@@ -8,13 +8,14 @@
 
 #import "AppController.h"
 #import "PreferenceController.h"
+#import "SetupController.h"
 
 @implementation AppController
 -(id)init{
     self = [super init];
     if (self) {
         preferenceController = [[PreferenceController alloc] init];
-        [preferenceController showWindow:self];
+        setupController = [[SetupController alloc] init];
     }
     return self;
 }
@@ -37,15 +38,22 @@
     NSImage *taskIcon = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"icon_20x20" ofType:@"png"]];
     [trayStatusItem setImage:taskIcon];
     
+    /*
+     if first time running app, display the setup screen
+     Perhaps sort of like
+     if([preferenceController firstTimeRunning])
+        [setupController showWindow:self];
+     
+     */
+    // assuming first time launched
+    [preferenceController setFirstTimeLaunch:YES];
+    if ([preferenceController firstTimeLaunch]) {
+        [setupController showWindow:self];
+    }
+    
         
-    // load preferences
+    
 #ifdef DEBUG
 #endif
-    // enter loop polling signal strength
-    // is the setupscreen and prefwindow NOT visible?
-    // what is the signal strength?
-    // is it below the threshold?
-    // alert the user and lock if timer runs out
-    
 }
 @end

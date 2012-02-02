@@ -40,6 +40,7 @@ extern NSString * const BBAThresholdValueKey;
 @property (nonatomic) BOOL dimKeyboard;
 @property (nonatomic) NSInteger thresholdValue;
 @property (nonatomic) NSInteger signalStrength; // Not stored as a default
+@property (nonatomic) BOOL firstTimeLaunch;
 -(IBAction)selectDevice:(id)sender;
 -(IBAction)addNewDevice:(id)sender;
 

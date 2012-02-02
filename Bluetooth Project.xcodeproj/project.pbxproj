@@ -13,6 +13,8 @@
 		682EFA0614C9926B0059B8A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 682EFA0414C9926B0059B8A4 /* Credits.rtf */; };
 		682EFA0914C9926B0059B8A4 /* BBAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 682EFA0814C9926B0059B8A4 /* BBAAppDelegate.m */; };
 		682EFA0F14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 682EFA0D14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld */; };
+		686A903C14DA8EC70049841F /* SetupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 686A903B14DA8EC70049841F /* SetupController.m */; };
+		686A903E14DA8F050049841F /* Setup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 686A903D14DA8F050049841F /* Setup.xib */; };
 		688B130114C9B240009A34CB /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688B12FF14C9B240009A34CB /* IOBluetooth.framework */; };
 		688B130214C9B240009A34CB /* IOBluetoothUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688B130014C9B240009A34CB /* IOBluetoothUI.framework */; };
 		D8104C1414C9A07C00FB1711 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8104C1314C9A07C00FB1711 /* MainMenu.xib */; };
@@ -40,6 +42,9 @@
 		682EFA0714C9926B0059B8A4 /* BBAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBAAppDelegate.h; sourceTree = "<group>"; };
 		682EFA0814C9926B0059B8A4 /* BBAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBAAppDelegate.m; sourceTree = "<group>"; };
 		682EFA0E14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bluetooth_Project.xcdatamodel; sourceTree = "<group>"; };
+		686A903A14DA8EC70049841F /* SetupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupController.h; sourceTree = "<group>"; };
+		686A903B14DA8EC70049841F /* SetupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupController.m; sourceTree = "<group>"; };
+		686A903D14DA8F050049841F /* Setup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Setup.xib; sourceTree = "<group>"; };
 		688B12FF14C9B240009A34CB /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = System/Library/Frameworks/IOBluetooth.framework; sourceTree = SDKROOT; };
 		688B130014C9B240009A34CB /* IOBluetoothUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetoothUI.framework; path = System/Library/Frameworks/IOBluetoothUI.framework; sourceTree = SDKROOT; };
 		D8104C1314C9A07C00FB1711 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
@@ -111,6 +116,7 @@
 		682EF9FB14C9926A0059B8A4 /* Bluetooth Project */ = {
 			isa = PBXGroup;
 			children = (
+				686A903814DA8EAA0049841F /* Setup Panel */,
 				D8B084ED14D97E9500CF8247 /* Images */,
 				D872BA4814C997BD00F35897 /* Preference Panel */,
 				D8104C1314C9A07C00FB1711 /* MainMenu.xib */,
@@ -134,6 +140,16 @@
 				682EFA0414C9926B0059B8A4 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		686A903814DA8EAA0049841F /* Setup Panel */ = {
+			isa = PBXGroup;
+			children = (
+				686A903A14DA8EC70049841F /* SetupController.h */,
+				686A903B14DA8EC70049841F /* SetupController.m */,
+				686A903D14DA8F050049841F /* Setup.xib */,
+			);
+			name = "Setup Panel";
 			sourceTree = "<group>";
 		};
 		D872BA4814C997BD00F35897 /* Preference Panel */ = {
@@ -216,6 +232,7 @@
 				D8B084F314D97EA700CF8247 /* Icon after I changed it.png in Resources */,
 				D8B084F414D97EA700CF8247 /* Orginal icon before I changed it.png in Resources */,
 				D8B084F814D9867500CF8247 /* icon_20x20.png in Resources */,
+				686A903E14DA8F050049841F /* Setup.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +248,7 @@
 				682EFA0F14C9926B0059B8A4 /* Bluetooth_Project.xcdatamodeld in Sources */,
 				D872BA4E14C9982A00F35897 /* PreferenceController.m in Sources */,
 				D8E6579314C9A35300B300D2 /* AppController.m in Sources */,
+				686A903C14DA8EC70049841F /* SetupController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
