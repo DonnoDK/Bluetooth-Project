@@ -21,8 +21,13 @@
 
 
 -(IBAction)showPref:(id)sender{
-    
-    [preferenceController showWindow:self];
+    if ([[preferenceController window] isVisible]) {
+        // move it in front
+        // EDIT: Not nessecary when using utility panel, but doesnt hurt to be left there
+        [[preferenceController window] makeKeyAndOrderFront:self];
+    }else{
+        [preferenceController showWindow:self];
+    }
 }
 
 -(void)awakeFromNib{
