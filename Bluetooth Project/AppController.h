@@ -17,7 +17,6 @@
     IBOutlet NSMenu *trayMenu;
     PreferenceController *preferenceController; // for the preference window controller
     SetupController *setupController; // for the setup window controller
-    BOOL firstTimeLaunched; //This is purely for testing
 }
 -(IBAction)showPref:(id)sender;
 @end
