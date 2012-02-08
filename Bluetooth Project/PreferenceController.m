@@ -36,6 +36,8 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 @synthesize selectedDevice;
 @synthesize pairedDevices;
 @synthesize firstTimeLaunch;
+@synthesize screenIsLocked;
+@synthesize screenIsUnlocked;
 
 #pragma mark Defaults
 + (void)initialize {
@@ -111,9 +113,16 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
                    name:NSPopUpButtonCellWillPopUpNotification
                  object:nil];
         
+        [nc addObserver:self selector:@selector(screenIsLocked:) name:@"com.apple.screenIsLocked" object:nil];
+        
+        [nc addObserver:self selector:@selector(screenIsUnlocked:) name:@"com.apple.screenIsUnlocked" object:nil];
+        
+        NSLog(@"Is screen locked? :%i", screenIsLocked);
+        
         //shouldLock = YES; // assume yes
         //task = [[NSTask alloc] init];
           //[task setLaunchPath: @"/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"];
+        counter = 0;
     }
     
 #ifdef DEBUG
@@ -146,6 +155,10 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 }
 -(void)updateIndicator{
     if (![task isRunning]) {
+        NSLog(@"Is screen locked? :%i", screenIsLocked);
+        if (counter < 4) {
+            counter++;
+        }
         if (selectedDevice && ![selectedDevice isConnected]) {
             NSLog(@"No connection - attempting to establish new connection");
             [self setSignalStrength:-20];
@@ -159,10 +172,12 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
         if (selectedDevice && [selectedDevice isConnected]){
             NSLog(@"Polling signal strength...");
             [self setSignalStrength:[selectedDevice RSSI]];
-            if ([self signalStrength] < [self thresholdValue]) {
+            if (([self signalStrength] < [self thresholdValue]) && counter == 4) {
                 NSLog(@"Device out of range - locking");
                 //[self lockdown];
+                counter = 0;
                 [self lockdown];
+                NSLog(@"Is screen locked? :%i", screenIsLocked);
             }
         }
     }else{
@@ -185,12 +200,16 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
     task = [[NSTask alloc] init];
     //********* Using lock screen istead of screensaver is NOT good
     //********* because we are unable to register when the user has logged in again
-    //NSMutableArray *arguments = [NSArray arrayWithObject:@"-suspend"];
-    //[task setArguments: arguments];
-    //[task setLaunchPath: @"/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession"];
+    NSMutableArray *arguments = [NSArray arrayWithObject:@"-suspend"];
+    [task setArguments: arguments];
+    [task setLaunchPath: @"/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession"];
     //********* Therefore using screen saver instead
-    [task setLaunchPath: @"/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"];
+    //[task setLaunchPath: @"/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"];
         
+    //[task setLaunchPath:@"/usr/bin/open"];
+    //NSArray *arguments;
+    //arguments = [NSArray arrayWithObject:@"/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app"];
+    //[task setArguments:arguments];
     [task launch];
 }
 
@@ -228,9 +247,9 @@ NSString * const BBAThresholdValueKey    = @"BBAThresholdValue";
 }
 
 - (IBAction)help:(id)sender {
-    NSAlert *help = [NSAlert alertWithMessageText:@"If you device is not currently listed,\nyou will need to pair it with your Mac.\n\nUse the Bluetooth setup assistant to do so."
+    NSAlert *help = [NSAlert alertWithMessageText:@"If BlueLock is unable to connect with your device, make sure that bluetooth is enable both on your device but also in MacOS X.\n\n If your device is not currently listed, you will need to pair it with your Mac.\nUse the Bluetooth setup assistant to do so."
                                     defaultButton:@"Open Bluetooth Assistant"
-                                  alternateButton:@"OK"
+                                  alternateButton:@"Close"
                                       otherButton:nil
                         informativeTextWithFormat:@""];
     [help setIcon:[NSImage imageNamed:@"bluetoothIcon"]];

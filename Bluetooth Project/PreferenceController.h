@@ -24,12 +24,14 @@ extern NSString * const BBAThresholdValueKey;
     NSTask *task;
     BOOL tryingToConnect;
     NSThread *conThread;
+    int counter;
 }
 
 - (IBAction)refreshDeviceList:(id)sender;
 - (void)lockdown;
 
-
+@property (nonatomic) BOOL screenIsLocked;
+@property (nonatomic) BOOL screenIsUnlocked;
 @property (nonatomic, strong) NSArray * pairedDevices;
 @property (nonatomic) BOOL isRunning;
 @property (nonatomic, assign) NSString *selectedDeviceName;

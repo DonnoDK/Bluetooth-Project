@@ -176,9 +176,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		682EF9F014C9926A0059B8A4 /* Bluetooth Project */ = {
+		682EF9F014C9926A0059B8A4 /* BlueLock */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 682EFA1214C9926B0059B8A4 /* Build configuration list for PBXNativeTarget "Bluetooth Project" */;
+			buildConfigurationList = 682EFA1214C9926B0059B8A4 /* Build configuration list for PBXNativeTarget "BlueLock" */;
 			buildPhases = (
 				682EF9ED14C9926A0059B8A4 /* Sources */,
 				682EF9EE14C9926A0059B8A4 /* Frameworks */,
@@ -188,7 +188,7 @@
 			);
 			dependencies = (
 			);
-			name = "Bluetooth Project";
+			name = BlueLock;
 			productName = "Bluetooth Project";
 			productReference = 682EF9F114C9926A0059B8A4 /* Bluetooth Project.app */;
 			productType = "com.apple.product-type.application";
@@ -213,7 +213,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				682EF9F014C9926A0059B8A4 /* Bluetooth Project */,
+				682EF9F014C9926A0059B8A4 /* BlueLock */,
 			);
 		};
 /* End PBXProject section */
@@ -357,7 +357,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		682EFA1214C9926B0059B8A4 /* Build configuration list for PBXNativeTarget "Bluetooth Project" */ = {
+		682EFA1214C9926B0059B8A4 /* Build configuration list for PBXNativeTarget "BlueLock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				682EFA1314C9926B0059B8A4 /* Debug */,

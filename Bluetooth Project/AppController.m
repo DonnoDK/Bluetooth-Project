@@ -48,7 +48,8 @@
     // assuming first time launched
     [preferenceController setFirstTimeLaunch:YES];
     if ([preferenceController firstTimeLaunch]) {
-        [setupController showWindow:self];
+        // omitting for now. Perhaps enable in an update
+        //[setupController showWindow:self];
     }
     
         
